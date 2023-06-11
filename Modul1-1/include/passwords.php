@@ -1,7 +1,7 @@
 <?php return [
   'wrath',
   'focus_fire',
-  'inrage',
+  'enrage',
   'eye_of_the_storm',
   'dumb_luck',
   'pierce_the_veil',

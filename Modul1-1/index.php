@@ -39,7 +39,7 @@
 					<div class="index-auth">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<?php
-						$view = 'Добро пожаловать, <b>Гость</b>!';
+
 						 if (isset($_GET['login']) & $_GET['login']=='yes'){
 								include $_SERVER['DOCUMENT_ROOT'] . '/include/formAuth.php';
 							} elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -50,14 +50,18 @@
 								$pass = $_POST['pass'] ?? '';
 								
 								if (($k = array_search($login, $logins)) !== false) {
-									$passwords[$k] != $pass ?: $view = 'Добро пожаловать, <b>' . $login . '</b>!';
+									if ($passwords[$k] !=$pass) {
+										echo 'Неверный логин или пароль';
+										include $_SERVER['DOCUMENT_ROOT'] . '/include/formAuth.php';
+									} else {
+										echo 'Добро пожаловать, <b>' . $login . '</b>!';
+									}
 								}
 								else {
 								echo 'Неверный логин или пароль';
 								include $_SERVER['DOCUMENT_ROOT'] . '/include/formAuth.php';
 							}
 							}  else {?><a href='/?login=yes'>Ввести данные для входа</a><?php }?>
-								
 						</table>
 					</div>
 
