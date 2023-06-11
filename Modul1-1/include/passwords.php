@@ -1,4 +1,4 @@
-<?php $password=[
+<?php return [
   'wrath',
   'focus_fire',
   'inrage',

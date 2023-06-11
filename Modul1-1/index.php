@@ -1,10 +1,6 @@
 <?php 
 //$login='WR';
 //$password='Muerta';
-
-include $_SERVER['DOCUMENT_ROOT'] . '/include/logins.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/include/passwords.php';
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -42,15 +38,25 @@ include $_SERVER['DOCUMENT_ROOT'] . '/include/passwords.php';
 					</div>
 					<div class="index-auth">
 						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						<?php if (isset($_GET['login']) & $_GET['login']=='yes'){
+						<?php
+						$view = 'Добро пожаловать, <b>Гость</b>!';
+						 if (isset($_GET['login']) & $_GET['login']=='yes'){
 								include $_SERVER['DOCUMENT_ROOT'] . '/include/formAuth.php';
-							} elseif (isset($_POST['send'])){
-							if ($_POST['login']==$login & $password==$_POST['pass']){
-								include $_SERVER['DOCUMENT_ROOT'] . '/include/success.php';
-							} else{
+							} elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+								$logins =  include $_SERVER['DOCUMENT_ROOT'] . '/include/logins.php';
+    						$passwords = include $_SERVER['DOCUMENT_ROOT'] . '/include/passwords.php';
+								
+								$login = $_POST['login'] ?? '';
+								$pass = $_POST['pass'] ?? '';
+								
+								if (($k = array_search($login, $logins)) !== false) {
+									$passwords[$k] != $pass ?: $view = 'Добро пожаловать, <b>' . $login . '</b>!';
+								}
+								else {
 								echo 'Неверный логин или пароль';
 								include $_SERVER['DOCUMENT_ROOT'] . '/include/formAuth.php';
-							}}else {?><a href='/?login=yes'>Ввести данные для входа</a><?php }?>
+							}
+							}  else {?><a href='/?login=yes'>Ввести данные для входа</a><?php }?>
 								
 						</table>
 					</div>
