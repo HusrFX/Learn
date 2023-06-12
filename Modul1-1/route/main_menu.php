@@ -1,0 +1,17 @@
+<?php return [
+  ['title' => 'Новости', 
+  'path' => '/route/news/',
+  'sort' => 'сортировка вывода'],
+  ['title' => 'Матчи', 
+  'path' => '/route/matches/',
+  'sort' => 'сортировка вывода'],
+  ['title' => 'Результаты', 
+  'path' => '/route/results/',
+  'sort' => 'сортировка вывода'],
+  ['title' => 'Турниры', 
+  'path' => '/route/events/',
+  'sort' => 'сортировка вывода'],
+  ['title' => 'Рейтинг', 
+  'path' => '/route/ranking/',
+  'sort' => 'сортировка вывода'],
+];
