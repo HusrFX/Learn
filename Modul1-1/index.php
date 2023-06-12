@@ -43,7 +43,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 										echo 'Неверный логин или пароль';
 										include $_SERVER['DOCUMENT_ROOT'] . '/include/formAuth.php';
 									} else {
-										echo 'Добро пожаловать, <b>' . $login . '</b>!';
+										echo $login . '</b>!' . include $_SERVER['DOCUMENT_ROOT'] . '/include/success.php';
 									}
 								}
 								else {
@@ -58,5 +58,4 @@ include $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
             </tr>
         </table>
 <?php
-
 include $_SERVER['DOCUMENT_ROOT'] . '/template/footer.php';
