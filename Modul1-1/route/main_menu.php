@@ -2,7 +2,7 @@
   ['title' => 'Новости', 
   'path' => '/route/news.php',
   'sort' => 'asc'],
-  ['title' => 'Матчи', 
+  ['title' => 'Расписание матчей', 
   'path' => '/route/matches.php',
   'sort' => 'asc'],
   ['title' => 'Результаты', 
