@@ -1,6 +1,6 @@
 <?php
 
-$main_menu = include $_SERVER['DOCUMENT_ROOT'] . '/include/main_menu.php';
+$main_menu = include $_SERVER['DOCUMENT_ROOT'] . '/route/main_menu.php';
 
 $leftMenu = [
 	['href'=>$main_menu[0]["path"], 'link'=>$main_menu[0]["title"]],

@@ -1,9 +1,4 @@
 <?php
-namespace helperName;
-
-/*
-* Функция возвращает название страницы в заголовке
-*/
 function headerName($main_menu)
 {
   if ($_SERVER['SCRIPT_NAME'] == $main_menu[0]['path']) {
