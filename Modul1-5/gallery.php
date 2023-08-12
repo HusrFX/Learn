@@ -2,6 +2,7 @@
 
 include $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 $files = scandir('upload/');
+
 ?><form enctype="multipart/form-data" method="POST" action="<?=$_SERVER['PHP_SELF']?>" ><?php
 foreach ($files as $file) {
   if($file != '.' && $file != '..')
@@ -12,26 +13,24 @@ foreach ($files as $file) {
     <?php
     echo $file;
     ?><br>
-    <input type="checkbox" name="delete[]" value="$files"/>Удалить
+    <input type="checkbox" name="del"/>Удалить
     <br><br>
     <?php
     if(isset($_POST['delete']))
     {
-      if (file_exists($file))
+      $f = $_SERVER['DOCUMENT_ROOT'] . '/upload/' . $file;
+      if (isset($_POST['del[]']))
       {
-        chmod($file, 0777);
-        unlink($file);
+        unlink($f);
         echo 'Файл '.$file.' был удалён';
       } else {
         echo 'Файл '.$file.' не существует';
       }
-      ?><br><?php
+      ?><br><?php var_dump($_POST['del']);
     } 
   }
 }
- 
 ?>
-
 <input type="submit" name="delete" value="Удалить выделенное"/>
 </form>
 <form action="/index.php" method="POST">
