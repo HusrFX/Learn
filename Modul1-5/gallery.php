@@ -15,20 +15,21 @@ foreach ($files as $file) {
     <input type="checkbox" name="delete[]" value="$files"/>Удалить
     <br><br>
     <?php
-  }
-}
-if(isset($_POST['delete']))
-{
-  foreach ($files as $filename) {
-    if (file_exists($filename))
+    if(isset($_POST['delete']))
     {
-      unlink($filename);
-      echo 'Файл '.$filename.' быд удалён';
-    } else {
-      echo 'Файл '.$filename.', не существует';
-    }
+      if (file_exists($file))
+      {
+        chmod($file, 0777);
+        unlink($file);
+        echo 'Файл '.$file.' был удалён';
+      } else {
+        echo 'Файл '.$file.' не существует';
+      }
+      ?><br><?php
+    } 
   }
 }
+ 
 ?>
 
 <input type="submit" name="delete" value="Удалить выделенное"/>
