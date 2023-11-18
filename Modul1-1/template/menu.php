@@ -20,10 +20,17 @@ function drawMenu() {
 			echo "<li>";
       $url = $_SERVER['SCRIPT_NAME'];
       if ($url == $item['path']){
-        echo "<a href='{$item['path']}' class = 'current';> {$item['title']}</a>";
+        echo "<a href='{$item['path']}' class = 'current'> {$item['title']}</a>";
       } else {
 				echo "<a href='{$item['path']}'>  {$item['title']}  </a>";
       }
        echo "</li>";
 	}
+  echo "<li>";
+  if ($url == '/index.php'){
+    echo "<a href='/' class = 'current'> Авторизация </a>";
+  } else {
+    echo "<a href='/'> Авторизация </a>";
+  }
+  echo "</li>";
 }

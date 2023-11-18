@@ -43,14 +43,30 @@ include $_SERVER['DOCUMENT_ROOT'] . '/template/header.php';
 										echo 'Неверный логин или пароль';
 										include $_SERVER['DOCUMENT_ROOT'] . '/include/formAuth.php';
 									} else {
-										echo $login . '</b>!' . include $_SERVER['DOCUMENT_ROOT'] . '/include/success.php';
+										include $_SERVER['DOCUMENT_ROOT'] . '/include/success.php';
+										echo $login . '</b>!';
+										include $_SERVER['DOCUMENT_ROOT'] . '/sessions/checkerAuth.php';
+										echo '</br>'?>
+										<a href="/template/logout.php">Выйти</a>
+										<?php
 									}
 								}
 								else {
 								echo 'Неверный логин или пароль';
 								include $_SERVER['DOCUMENT_ROOT'] . '/include/formAuth.php';
 							}
-							}  else {?><a href='/?login=yes'>Ввести данные для входа</a><?php }?>
+							}  else {?><a href='/?login=yes'>Ввести данные для входа</a><?php }
+							/*echo '</br>';
+							echo "Авторизован ли: ";
+							var_dump($_SESSION['is_auth']);
+							echo '</br>';
+							echo "Количество хитов: ";
+							var_dump($_SESSION['count_auth']);
+							echo '</br>';
+							echo "Время жизни: ";
+							var_dump(ini_get("session.cookie_lifetime")/3600);
+							echo " часов";*/							
+?>
 						</table>
 					</div>
 
