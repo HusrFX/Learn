@@ -107,7 +107,7 @@ a:hover {
 }
 
 .bot-menu li {
-	list-style: none;
+  list-style: none;
 }
 
 .bot-menu li a {
@@ -822,3 +822,4 @@ a:hover {
 h1 {
   color:white;
 }
+
